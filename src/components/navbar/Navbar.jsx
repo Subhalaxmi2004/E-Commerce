@@ -23,7 +23,7 @@ const hide = () =>{
 
 }
 const handleThemeToggle = () => {
-  toggleMode(); // Call the toggleMode function to change the theme.
+  toggleMode(); 
 };
 const user = JSON.parse(localStorage.getItem('user'))
 const logout = () =>{

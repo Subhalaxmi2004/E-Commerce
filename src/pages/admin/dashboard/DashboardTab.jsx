@@ -6,6 +6,8 @@ import Layout from '../../../components/layout/Layout';
 const DashboardTab = () => {
   const context = useContext(MyContext);
     const { mode,products,getProductData,product,productsArray ,edithandle,updateProduct,deleteProduct,order,user } = context;
+    console.log('User Data:', user);
+
     console.log(products);
     const add = () =>{
       window.location.href = "/AddProduct"

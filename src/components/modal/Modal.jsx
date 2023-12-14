@@ -105,7 +105,7 @@ export default function Modal({ name, address, pincode, number, setName, setAddr
 
               <button
                 type="button"
-                onClick={closeModal}
+                onClick={() =>{buyNow();closeModal();}}
                 style={modalStyles.button}
               >
                 Order Now

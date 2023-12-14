@@ -159,11 +159,11 @@ const MyState = (props) => {
   const getUserData = async () => {
     setLoading(true)
     try {
-      const result = await getDocs(collection(fireDB, "user"))
+      const result = await getDocs(collection(fireDB, "users"))
       const usersArray = [];
       result.forEach((doc) => {
         usersArray.push(doc.data());
-        setLoading(false)
+        
       });
       setUser(usersArray);
       console.log(usersArray)
@@ -184,7 +184,7 @@ const MyState = (props) => {
   }, []);
   return (
     <div>
-<MyContext.Provider value={{mode,toggleMode,loading,loading,setLoading,products,setProducts,addProduct,getProductData,product,edithandle,updateProduct,deleteProduct}}>{
+<MyContext.Provider value={{mode,toggleMode,loading,loading,setLoading,products,setProducts,addProduct,getProductData,product,edithandle,updateProduct,deleteProduct,user}}>{
   props.children
 }</MyContext.Provider>
     </div>

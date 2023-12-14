@@ -43,7 +43,6 @@ const buyNow = async () =>{
     return toast.error("All fields are required", {
     })
   }
-}
 const addressInfo = {
   name,
   address,
@@ -56,8 +55,8 @@ const addressInfo = {
       day: "2-digit",
       year: "numeric",
     }
-  )
-}
+  ),};
+
 console.log(addressInfo)
 const options = {
   key: "rzp_test_kjwj5iIftnuVQW",
@@ -86,19 +85,23 @@ const options = {
       email: JSON.parse(localStorage.getItem("user")).user.email,
       userid: JSON.parse(localStorage.getItem("user")).user.uid,
       paymentId
-    }
+    };
 
     try {
       const orderRef = collection(fireDB,"order")
-      addDoc(orderRef,orderInfo)
+      const docRef =  addDoc(orderRef, orderInfo);
+      console.log("Document written with ID: ", docRef.id);
+      toast.success('Payment Successful');
     } catch (error) {
       console.log(error)
+      toast.error('Error processing order');
     }
   }
 };
 const pay = new window.Razorpay(options);
 pay.open();
-console.log(pay)
+//console.log(pay)
+}
 
   return (
     <div>
@@ -139,7 +142,7 @@ console.log(pay)
         </div>
         <Modal name={name} address={address} pincode ={pincode}
           number={number} setName={setName} setAddress={setAddress}
-          setPincode={setPincode} setNumber={setNumber} OrderNow ={buyNow}
+          setPincode={setPincode} setNumber={setNumber} buyNow ={buyNow}
         />
       </div>
     );
